@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project 1</title>
+</head>
+<body>
+    <form name="login" method="POST" style="width: 400px;" onsubmit="encryptForm();">
+        <input type="text" name="username" placeholder="username"><br><br>
+        <input type="password" name="password" placeholder="password">
+        <button type="submit">Submit</button>
+    </form>
+    <script src="https://cdnjs.cloudflar.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script>
+        function encryptForm() {
+            document.login.password.value = CrytoJS.MD5(document.login.password.value);
+        }
+    </script>
+</body>
+</html>
